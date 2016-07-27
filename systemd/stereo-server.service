@@ -1,0 +1,16 @@
+[Unit]
+Description=Stereo Serial Server
+Requires=network.target
+After=dhcpcd.service
+
+[Service]
+Type=simple
+User=nobody
+Group=dialout
+EnvironmentFile=/etc/default/stereo-server
+WorkingDirectory=/opt/local/mpr-6zhmaut-api
+ExecStart=/usr/local/bin/node /opt/local/mpr-6zhmaut-api/app.js
+
+[Install]
+WantedBy=multi-user.target
+
